@@ -1,6 +1,5 @@
 import os
 import streamlit as st
-from datasets import load_dataset
 import pandas as pd
 import cohere
 import pinecone
@@ -26,8 +25,6 @@ project_ideas = [
 project_list = [{'id': id+1, 'idea': idea} for id, idea in enumerate(project_ideas)]
 
 dataset = pd.DataFrame(project_list)
-
-
 
 cohere_api_key = os.environ['COHERE_API_KEY']
 
