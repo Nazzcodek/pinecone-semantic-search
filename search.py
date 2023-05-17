@@ -5,24 +5,22 @@ import cohere
 import pinecone
 from tqdm.auto import tqdm
 
-project_ideas = [
-    "To-Do List Application",
-    "Weather App",
-    "URL Shortener",
-    "Image Gallery",
-    "Chatbot",
-    "News Aggregator",
-    "Password Generator",
-    "Expense Tracker",
-    "Quiz Game",
-    "Social Media Dashboard",
-    "File Encryption/Decryption",
-    "Language Translator",
-    "Stock Market Analyzer",
-    "Music Player",
-    "Recipe Finder"
+travel_ideas = [
+     "Hiking trails in the Rocky Mountains", "Popular beaches in California", 
+     "Museums in Paris", "Ski resorts in Colorado", "National parks in Australia", 
+     "Historical landmarks in Rome", "Famous landmarks in New York City", 
+     "Breweries in Portland", "Golf courses in Scotland", "Wineries in Napa Valley", 
+     "Horseback riding trails in the Appalachian Mountains", 
+     "Diving spots in the Great Barrier Reef", "Art galleries in London", 
+     "Biking trails in the Netherlands", "Sightseeing tours in Japan", 
+     "Amusement parks in Florida", "Zoos in South Africa", 
+     "National forests in the Pacific Northwest", "Ski resorts in the Swiss Alps", 
+     "Hiking trails in the Pyrenees", "Famous landmarks in Istanbul", "Museums in Berlin", 
+     "Beaches in Thailand", "Historical landmarks in Cairo", "Nature reserves in Costa Rica", 
+     "Ski resorts in the Canadian Rockies"
 ]
-project_list = [{'id': id+1, 'idea': idea} for id, idea in enumerate(project_ideas)]
+
+project_list = [{'id': id+1, 'idea': idea} for id, idea in enumerate(travel_ideas)]
 
 dataset = pd.DataFrame(project_list)
 
@@ -63,7 +61,7 @@ def create_index(index_name):
     # Initialize Pinecone with API key and GCP environment.
     pinecone.init(
         api_key=os.environ['PINECONE_API_KEY'],
-        environment='asia-northeast1-gcp'
+        environment='us-west1-gcp-free'
     )
 
     # Create the index if it doesn't already exist.
@@ -140,6 +138,7 @@ def delete_index(index_name):
     pinecone.delete_index(index_name)
 
 
+@st.cache_resource(experimental_allow_widgets=True) 
 def main():
     """
     This is the main function that runs the semantic search application.
@@ -152,8 +151,8 @@ def main():
     # dataset = load_dataset('quora', split='train')
    # Load the project ideas from the DataFrame.
     df = pd.DataFrame({
-        'id': [i for i in range(1, len(project_ideas) + 1)],
-        'idea': project_ideas
+        'id': [i for i in range(1, len(travel_ideas) + 1)],
+        'idea': travel_ideas
     })
 
     # Extract the questions from the DataFrame.
