@@ -32,9 +32,6 @@ The application uses a pre-defined list of project ideas for indexing and search
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 
 
