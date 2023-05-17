@@ -4,7 +4,7 @@ This is a simple application that demonstrates semantic search using Pinecone an
 ## Installation
 
 1. Clone the repository:
-
+`https://github.com/Nazzcodek/pinecone-semantic-search.git`
 2. Install the required dependencies:
 `pip install -r requirements.txt`
 3. Set up your API keys:
