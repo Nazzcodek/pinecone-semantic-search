@@ -1,0 +1,9 @@
+openai 
+pinecone-client
+pandas
+django
+cohere
+sentence-transformers
+pinecone-client[grpc]
+datasets
+streamlit
